@@ -24,8 +24,9 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="/">
-                        <img src="https://cdn-icons-png.flaticon.com/512/7747/7747363.png" width="30" height="2400">
-                        <strong> | - Discovery Data Lab</strong>
+                        {% load static %}
+
+                        <img src="{% static 'core/images/logo.png' %}" width="30" height="2400">
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
