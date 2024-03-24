@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ post.title }} | {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container has-text-centered"> <!-- Added has-text-centered class -->
+            <section class="section">                
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+                            
+                            <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
+                            <h1 class="title">{{ post.title }}</h1>
+                            <p><strong>{{ post.intro|linebreaks }}</strong></p>
+                            <p>{{ post.body|linebreaks }}</p>
+
+                            <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small></p>
+
+                            <hr>
+
+                            {% if post.image %}
+                            <figure class="image mb-6">
+                                <div style="display: inline-block;">
+                                <!--    <img src="{{ post.image.url }}" width="100" height="100" alt="{{ post.title }}">-->
+                                </div>
+                                </figure>
+                            {% endif %}
+
+                            <h2 class="subtitle is-4">Deixe seu comentário!</h2>
+
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    <div class="field">
+                                        <label class="label">{{ field.label }}</label>
+                                        <div class="control">
+                                            {{ field }}
+                                        </div>
+                                        {% if field.errors %}
+                                            <p class="help is-danger">{{ field.errors }}</p>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="button is-primary" type="submit" value="Submit">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <hr>
+                            <h2 class="subtitle is-4">Comentários</h2>
+
+                            {% for comment in post.comments.all %}
+                                <article class="media box">
+                                    <div class="media-content">
+                                        <strong>{{ comment.name }}</strong> <small>{{ comment.created_at|timesince }} ago</small><br>
+                                        {{ comment.body }}
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}
