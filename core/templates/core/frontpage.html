@@ -12,8 +12,8 @@
                             {% for post in posts %}
                                 <div class="content is-medium">
                                     <a href={% url 'post_detail' post.category.slug post.slug %}>
-                                        <h2 class="title is-4">{{ post.created_at|date:'M-d-Y' }}</h2>
-                                        <h1 class="title">{{ post.title }}</h1>
+                                        <h2 class="title is-4">{{ post.created_at|date:'M-d-Y H:m:s'}} </h2>
+                                        <h1 class="title" style="background-color: #fafafa;">{{ post.title }}</h1>
                                         <p>{{ post.intro }}</p>
                                     </a>
                                 </div>

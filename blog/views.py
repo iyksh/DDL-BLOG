@@ -15,7 +15,7 @@ def detail(request, category_slug, slug):
             comment.post = post
             comment.save()
 
-            return redirect('post_detail', slug=slug)
+            return redirect('post_detail', category_slug=category_slug, slug=slug)
     else:
         form = CommentForm()
 

@@ -22,13 +22,10 @@
     <body>
         <nav class="navbar">
             <div class="container">
-                <!-- <img src="https://raw.githubusercontent.com/iyksh/DDL-BLOG/main/DDLblog/core/images/logo_only.png" width="auto" height="auto"> -->
                 
                 <div class="navbar-brand">
-                    <img src="https://raw.githubusercontent.com/iyksh/DDL-BLOG/main/DDLblog/core/images/text_logo.png" width="333" height="0">
-                    <a class="navbar-item" href="/">
-                        
-                        
+                    <a class="navbar-brand" href="/">
+                        <img src="https://raw.githubusercontent.com/iyksh/DDL-BLOG/main/core/images/text_logo.png" width="auto" height="auto">
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
@@ -54,11 +51,9 @@
                         <a href="{% url 'about' %}" class="navbar-item is-size-5 has-text-weight-semibold">
                             Sobre
                         </a>
-                        <a href="{% url 'contact' %}" class="navbar-item is-size-5 has-text-weight-semibold">
-                            Contato
+                        <a href="{% url 'contact' %}" class="navbar-item is-size-5 has-text-weight-semibold" style="background: -webkit-linear-gradient(#00b7ff, #000000); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
+                            Join-us
                         </a>
-                        <a href="{% url 'researchers' %}" class="navbar-item is-size-5 has-text-weight-semibold">
-                            Colaboradores
                         </a>
                     </div>
                 </div>
@@ -74,9 +69,12 @@
 
         <footer class="footer">
             <div class="content has-text-centered">
-                <p>
-                    Copyright (c) 2024 - Discovery Data Lab
-                </p>
+                <h3>
+                    Copyright (c) 2024 - Discovery Data Lab - D304                     
+                </h3>
+                
+                <p>Instituto de Ciências Exatas e Aplicadas, Universidade Federal de Ouro Preto</p>
+
             </div>
         </footer>
     </body>
