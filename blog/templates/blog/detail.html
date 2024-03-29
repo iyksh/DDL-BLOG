@@ -34,19 +34,26 @@
                             <form method="post">
                                 {% csrf_token %}
                                 {% for field in form %}
-                                    <div class="field">
-                                        <label class="label">{{ field.label }}</label>
-                                        <div class="control">
-                                            {{ field }}
-                                        </div>
-                                        {% if field.errors %}
-                                            <p class="help is-danger">{{ field.errors }}</p>
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
+
                                 <div class="field">
+                                    <label class="label">{{ field.label }}</label>
                                     <div class="control">
-                                        <input class="button is-primary" type="submit" value="Submit">
+                                        <input class="input" type="text" placeholder="Escreva aqui!" {{ field }}
+                                    </div>
+                                    {% if field.errors %}
+                                    <p class="help is-danger">{{ field.errors }}</p>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                                <hr>
+
+                                <div class="field">
+                                    <p>Comentando você concorda com os<a href="#"> Termos e Condições</a></p>
+                                </div>
+                                
+                                <div class="is-centered">
+                                    <div class="control">
+                                        <button class="button is-link">Enviar!</button>
                                     </div>
                                 </div>
                             </form>

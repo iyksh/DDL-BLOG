@@ -21,18 +21,6 @@
                     <a class="navbar-item" href="/">
                         <img src="https://raw.githubusercontent.com/iyksh/DDL-BLOG/main/core/images/text_logo.png" width="auto" height="auto">
                     </a>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">Join-Us</a>
-                        <div class="navbar-dropdown">
-                            <div class="navbar-item">
-                                <p><a href="#" class="navbar-item">2023.2</a></p>
-                            </div>
-                            <hr class="navbar-divider">
-                            <div class="navbar-item">
-                                <a href="#" class="navbar-item">2024.1</a>
-                            </div>
-                        </div>
-                    </div>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
                         <span></span>
@@ -50,42 +38,55 @@
                             </div>
                         </div>
                         <a href="/" class="navbar-item is-hoverable">Home</a>
-                        <a href="/" class="navbar-item is-hoverable">News</a>
+                        <a href="{% url 'news' %}" class="navbar-item is-hoverable">News</a>
                         <!-- ABOUT -->
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">About</a>
+                            <a class="navbar-link">Sobre</a>
                             <div class="navbar-dropdown">
                                 <div class="navbar-item">
-                                    <p><a href="#" class="navbar-item">The Laboratory</a></p>
+                                    <p><a href="{% url 'about_lab' %}" class="navbar-item">O Laboratoratório</a></p>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <a href="#" class="navbar-item">The Team</a>
+                                    <a href="#" class="navbar-item">O Time</a>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <p><a href="#" class="navbar-item">Contact</a></p>
+                                    <p><a href="#" class="navbar-item">Contato</a></p>
                                 </div>   
+                            </div>
+                        </div>
+                        <!-- JOIN-US -->
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Join-Us</a>
+                            <div class="navbar-dropdown">
+                                <div class="navbar-item">
+                                    <p><a href="#" class="navbar-item">2023.2</a></p>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <a href="#" class="navbar-item">2024.1</a>
+                                </div>
                             </div>
                         </div>
                         <!-- RESEARCH -->
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">Research</a>
+                            <a class="navbar-link">Pesquisa</a>
                             <div class="navbar-dropdown">
                                 <div class="navbar-item">
-                                    <p><a href="#" class="navbar-item">Research Projects</a></p>
+                                    <p><a href="#" class="navbar-item">Projetos de Pesquisa</a></p>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <a href="#" class="navbar-item">Active Projects</a>
+                                    <a href="#" class="navbar-item">Projetos Ativos</a>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <p><a href="#" class="navbar-item">Publications</a></p>
+                                    <p><a href="#" class="navbar-item">Publicações</a></p>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <a href="#" class="navbar-item">Topics</a>
+                                    <a href="#" class="navbar-item">Tópicos</a>
                                 </div>      
                             </div>
                         </div>
