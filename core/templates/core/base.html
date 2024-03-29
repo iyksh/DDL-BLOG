@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
         <title>{% block title %}{% endblock %}Discovery Data Lab</title>
-
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
         <style>
             nav.navbar {
                 height: 6rem !important;
@@ -18,63 +14,96 @@
             }
         </style>
     </head>
-
     <body>
         <nav class="navbar">
             <div class="container">
-                
                 <div class="navbar-brand">
                     <a class="navbar-item" href="/">
                         <img src="https://raw.githubusercontent.com/iyksh/DDL-BLOG/main/core/images/text_logo.png" width="auto" height="auto">
                     </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Join-Us</a>
+                        <div class="navbar-dropdown">
+                            <div class="navbar-item">
+                                <p><a href="#" class="navbar-item">2023.2</a></p>
+                            </div>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">
+                                <a href="#" class="navbar-item">2024.1</a>
+                            </div>
+                        </div>
+                    </div>
                     <span class="navbar-burger burger" data-target="navbarMenu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </span>
                 </div>
-
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
                         <div class="navbar-item">
-                                <div class="control has-icons-left">
-                                    <input class="input is-rounded" name="query" type="text" placeholder="Search">
-                                    <span class="icon is-left">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                </div>
+                            <div class="control has-icons-left">
+                                <input class="input is-rounded" name="query" type="text" placeholder="Search">
+                                <span class="icon is-left">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
                         </div>
-
-                        <a href="/" class="navbar-item is-active is-size-5 has-text-weight-semibold">
-                            Home
-                        </a>
-                        <a href="{% url 'about' %}" class="navbar-item is-size-5 has-text-weight-semibold">
-                            Sobre
-                        </a>
-                        <a href="{% url 'contact' %}" class="navbar-item is-size-5 has-text-weight-semibold" style="background: -webkit-linear-gradient(#00b7ff, #000000); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
-                            Join-us
-                        </a>
-                        </a>
+                        <a href="/" class="navbar-item is-hoverable">Home</a>
+                        <a href="/" class="navbar-item is-hoverable">News</a>
+                        <!-- ABOUT -->
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">About</a>
+                            <div class="navbar-dropdown">
+                                <div class="navbar-item">
+                                    <p><a href="#" class="navbar-item">The Laboratory</a></p>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <a href="#" class="navbar-item">The Team</a>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <p><a href="#" class="navbar-item">Contact</a></p>
+                                </div>   
+                            </div>
+                        </div>
+                        <!-- RESEARCH -->
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Research</a>
+                            <div class="navbar-dropdown">
+                                <div class="navbar-item">
+                                    <p><a href="#" class="navbar-item">Research Projects</a></p>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <a href="#" class="navbar-item">Active Projects</a>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <p><a href="#" class="navbar-item">Publications</a></p>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <a href="#" class="navbar-item">Topics</a>
+                                </div>      
+                            </div>
+                        </div>
+                        <a href="/admin" class="navbar-item is-hoverable">Private Area</a>
                     </div>
                 </div>
             </div>
         </nav>
-
         <section class="section">
             <div class="container">
                 {% block content %}
                 {% endblock %}
             </div>
         </section>
-
         <footer class="footer">
             <div class="content has-text-centered">
-                <h3>
-                    Copyright (c) 2024 - Discovery Data Lab - D304                     
-                </h3>
-                
+                <h3>Copyright (c) 2024 - Discovery Data Lab - D304</h3>
                 <p>Instituto de Ciências Exatas e Aplicadas, Universidade Federal de Ouro Preto</p>
-
             </div>
         </footer>
     </body>

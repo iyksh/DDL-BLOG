@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load markdown_filter %}
 
 {% block title %}{{ post.title }} | {% endblock %}
 
@@ -15,7 +16,7 @@
                             <h1 class="title">{{ post.title }}</h1>
                             <hr>
                             <p><strong>{{ post.intro|linebreaks }}</strong></p>
-                            <p>{{ post.body|linebreaks }}</p>
+                            <p>{{ post.body|markdown|safe|linebreaks }}</p>
                             
                             {% if post.image %}
                             <figure class="image mb-6">

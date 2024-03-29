@@ -22,7 +22,7 @@ from django.urls import path, include
 
 from .sitemaps import CategorySitemap, PostSitemap
 
-from core.views import frontpage, about, robots_txt
+from core.views import frontpage, about, robots_txt, news
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
@@ -31,8 +31,8 @@ urlpatterns = [
     path('robots.txt', robots_txt, name='robots_txt'),
     path('admin/', admin.site.urls),
     path('about/', about, name='about'),
+    path('news/', news, name='news'),
     path('contact/', about, name='contact'),
-    path('researchers/', about, name='researchers'),
     path('', include('blog.urls')),
     path('', frontpage, name='frontpage'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

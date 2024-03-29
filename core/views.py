@@ -18,3 +18,6 @@ def robots_txt(request):
         "Disallow: /admin/",
     ]
     return HttpResponse("\n".join(text), content_type="text/plain")
+
+def news(request):
+    return render(request, 'core/news.html')

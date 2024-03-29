@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home | {% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <section class="section">
+                    <div class="columns">
+                        <div class="column is-8 is-offset-2">
+                            {% for post in posts %}
+                                {% if post.category == 'news' %}
+                                    <div class="content is-medium">
+                                        <a href={% url 'post_detail' post.category.slug post.slug %}>
+                                            <h2 class="title is-4">{{ post.created_at|date:'M-d-Y H:m'}} </h2>
+                                            <h1 class="title" style="background-color: #fafafa;">{{ post.title }}</h1>
+                                            <p>{{ post.intro }}</p>
+                                        </a>
+                                    </div>
+                                    <hr> 
+                                {% endif %}
+                                {% empty %}
+                                <div class="content">
+                                    
+                                    <p style="text-align: center;">Sem novidades no momento...</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+{% endblock %}
