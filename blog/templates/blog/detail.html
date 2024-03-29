@@ -6,17 +6,26 @@
 {% block content %}
 <section class="hero">
     <div class="hero-body">
-        <div class="container has-text-centered"> <!-- Added has-text-centered class -->
+        <div class="container"> <!-- Added has-text-centered class -->
             <section class="section">                
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
                             
-                            <h2 class="subtitle is-4" style="background-color: #fafafa;">{{ post.created_at|timesince }} ago</h2>
-                            <h1 class="title">{{ post.title }}</h1>
-                            <hr>
-                            <p><strong>{{ post.intro|linebreaks }}</strong></p>
-                            <p>{{ post.body|markdown|safe|linebreaks }}</p>
+                            <div class="container has-text-centered">
+                                <h2 class="subtitle is-4" style="background-color: #fafafa;">{{ post.created_at|timesince }} ago</h2>
+                                <h1 class="title">{{ post.title }}</h1>
+                                <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small> - <small>Author: {{ post.author }}</small></p>
+
+                                <hr>
+                                <p><strong>{{ post.intro|linebreaks }}</strong></p>
+                            </div>
+                            
+                            <div class="content is-medium">
+                                <div class="left-side">
+                                    <p>{{ post.body|markdown|safe|linebreaks }}</p>
+                                </div>
+                            </div>
                             
                             {% if post.image %}
                             <figure class="image mb-6">
@@ -26,7 +35,6 @@
                             </figure>
                             {% endif %}
 
-                            <p><small>Category: <a href="{% url 'category_detail' post.category.slug %}">{{ post.category }}</a></small> - <small>Author: {{ post.author }}</small></p>
                             <hr>
 
                             <h2 class="subtitle is-4">Deixe seu comentário!</h2>

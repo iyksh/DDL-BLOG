@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Sobre o Lab | {% endblock %}
+{% block title %}About Lab | {% endblock %}
 
 {% block content %}
     <section class="hero">
@@ -10,17 +10,21 @@
                     <div class="columns">
                         <div class="column is-8 is-offset-2">
                             {% for post in posts %}
-                                <div class="content is-medium">
-                                    <a href="{% url 'post_detail' post.category.slug post.slug %}">
-                                        <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
-                                        <h1 class="title">{{ post.title }}</h1>
-                                        <p>{{ post.intro }}</p>
-                                    </a>
+                                <div class="content is-medium" style="display: flex; align-items: center;">
+                                    {% if post.image %}
+                                        <div style="flex: 1;">
+                                            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%;">
+                                        </div>
+                                    {% endif %}
+                                    <div style="flex: 2; margin-left: 20px;">
+                                        <a href={% url 'post_detail' post.category.slug post.slug %}>
+                                            <h2 class="title is-4">{{ post.created_at|date:'M-d-Y H:m:s'}} </h2>
+                                            <h1 class="title" style="background-color: #fafafa;">{{ post.title }}</h1>
+                                            <p>{{ post.intro }}</p>
+                                        </a>
+                                    </div>
                                 </div>
-                            {% empty %}
-                                <div class="content">
-                                    <p>Nenhum resultado encontrado...</p>
-                                </div>
+                                <hr> 
                             {% endfor %}
                         </div>
                     </div>
