@@ -35,14 +35,17 @@ def about_lab(request):
 
 @csrf_exempt
 def upload(request):
+    print(request.FILES)  # print the FILES attribute of the request
     if request.method == 'POST':
-        upload = request.FILES['upload']
-        name = default_storage.save(upload.name, upload)
-        url = default_storage.url(name)
-
-        return JsonResponse({
-            'uploaded': 1,
-            'fileName': name,
-            'url': url,
-        })
+        upload = request.FILES.get('upload')
+        if upload is not None:
+            name = default_storage.save(upload.name, upload)
+            url = default_storage.url(name)
+            return JsonResponse({
+                'uploaded': 1,
+                'fileName': name,
+                'url': url,
+            })
+        else:
+            return JsonResponse({'error': 'No file was uploaded'}, status=400)
     return JsonResponse({'error': 'Invalid method'}, status=405)
