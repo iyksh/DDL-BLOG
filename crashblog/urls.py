@@ -22,7 +22,7 @@ from django.urls import path, include
 
 from .sitemaps import CategorySitemap, PostSitemap
 
-from core.views import frontpage, about, robots_txt, news, about_lab
+from core.views import frontpage, about, robots_txt, news, about_lab, upload
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
@@ -35,4 +35,5 @@ urlpatterns = [
     path('contact/', about, name='contact'),
     path('', include('blog.urls')),
     path('', frontpage, name='frontpage'),
+    path('ckeditor/upload/', upload, name='ck_editor_5_upload_file'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

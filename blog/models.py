@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Category(models.Model):
     title = models.CharField(max_length=255)
@@ -28,10 +28,10 @@ class Post(models.Model):
     category2 = models.ForeignKey(Category, related_name='posts2', on_delete=models.CASCADE, verbose_name='Category 2')
     category3 = models.ForeignKey(Category, related_name='posts3', on_delete=models.CASCADE, verbose_name='Category 3')
     
-    title = models.CharField(max_length=255, verbose_name='Title')
+    title = models.CharField(max_length=124, verbose_name='Title')
     slug = models.SlugField(verbose_name='Slug (e.g. hello-world)')
     intro = models.TextField(blank=True, verbose_name='Introduction')
-    body = RichTextField(blank=True, null=True, verbose_name='Content')
+    body = CKEditor5Field(blank=True, null=True, verbose_name='Content')    
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
     image = models.ImageField(upload_to='uploads/', blank=True, null=True, verbose_name='Banner Image')
