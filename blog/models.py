@@ -24,15 +24,18 @@ class Post(models.Model):
         (DRAFT, 'Draft')
     )
 
-    category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    slug = models.SlugField()
-    intro = models.TextField(blank=True)
-    body = RichTextField(blank=True)
+    category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE, verbose_name='Category 1')
+    category2 = models.ForeignKey(Category, related_name='posts2', on_delete=models.CASCADE, verbose_name='Category 2')
+    category3 = models.ForeignKey(Category, related_name='posts3', on_delete=models.CASCADE, verbose_name='Category 3')
+    
+    title = models.CharField(max_length=255, verbose_name='Title')
+    slug = models.SlugField(verbose_name='Slug (e.g. hello-world)')
+    intro = models.TextField(blank=True, verbose_name='Introduction')
+    body = RichTextField(blank=True, null=True, verbose_name='Content')
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
-    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
-    author = models.CharField(max_length=255, default='Admin')
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True, verbose_name='Banner Image')
+    author = models.CharField(max_length=255, default='It will be automatically filled in.', editable=False)
 
     class Meta:
         ordering = ('-created_at',)

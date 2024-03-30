@@ -1,6 +1,8 @@
 from django.http.response import HttpResponse
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Q
+
 
 from blog.models import Post, Category
 def frontpage(request):
@@ -13,7 +15,7 @@ def about(request):
 
 def news(request):
     news_category = Category.objects.get(slug='news')  # or title='news' if you prefer
-    posts = Post.objects.filter(category=news_category)
+    posts = Post.objects.filter(Q(category=news_category) | Q(category2=news_category) | Q(category3=news_category))
     return render(request, 'core/news.html', {'posts': posts})
 
 def robots_txt(request):
