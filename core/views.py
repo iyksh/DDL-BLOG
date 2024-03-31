@@ -13,9 +13,6 @@ def frontpage(request):
 
     return render(request, 'core/frontpage.html', {'posts': posts})
 
-def about(request):
-    return render(request, 'core/about.html')
-
 def news(request):
     news_category = Category.objects.get(slug='news')  # or title='news' if you prefer
     posts = Post.objects.filter(Q(category=news_category) | Q(category2=news_category) | Q(category3=news_category))
@@ -32,6 +29,11 @@ def about_lab(request):
     about_lab_category = Category.objects.get(slug='about-lab')  # or title='about-lab' if you prefer
     posts = Post.objects.filter(category=about_lab_category)
     return render(request, 'core/about_lab.html', {'posts': posts})
+
+def about_team(request):
+    about_team_category = Category.objects.get(slug='about-team')  # or title='about-lab' if you prefer
+    posts = Post.objects.filter(category=about_team_category)
+    return render(request, 'core/about_team.html', {'posts': posts})
 
 @csrf_exempt
 def upload(request):

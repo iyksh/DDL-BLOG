@@ -37,7 +37,7 @@
                                 </span>
                             </div>
                         </div>
-                        <a href="/" class="navbar-item is-hoverable">Home</a>
+                        <a href="{% url 'frontpage' %}"  class="navbar-item is-hoverable">Home</a>
                         <a href="{% url 'news' %}" class="navbar-item is-hoverable">News</a>
                         <!-- ABOUT -->
                         <div class="navbar-item has-dropdown is-hoverable">
@@ -48,7 +48,7 @@
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">
-                                    <a href="#" class="navbar-item">O Time</a>
+                                    <a href="{% url 'about_team' %}" class="navbar-item">O Time</a>
                                 </div>
                                 <hr class="navbar-divider">
                                 <div class="navbar-item">

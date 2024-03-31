@@ -22,18 +22,38 @@ from django.urls import path, include
 
 from .sitemaps import CategorySitemap, PostSitemap
 
-from core.views import frontpage, about, robots_txt, news, about_lab, upload
+
+from core.views import robots_txt, upload
+from core.views import frontpage, news
+from core.views import about_lab, about_team
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
 urlpatterns = [
+    
+    # DEFAULT #
+    
+    #===========================================================================
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('robots.txt', robots_txt, name='robots_txt'),
-    path('admin/', admin.site.urls),
-    path('about_lab', about_lab, name='about_lab'),
-    path('news/', news, name='news'),
-    path('contact/', about, name='contact'),
-    path('', include('blog.urls')),
-    path('', frontpage, name='frontpage'),
     path('media/uploads/', upload, name='ck_editor_5_upload_file'),
+    path('admin/', admin.site.urls),
+    path('', include('blog.urls')),
+    #===========================================================================
+    
+    # HOME AND NEWS #
+    
+    #===========================================================================
+    path('', frontpage, name='frontpage'),
+    path('news/', news, name='news'),
+    #===========================================================================
+    
+    # ABOUT #
+    
+    #===========================================================================
+     path('about_lab', about_lab, name='about_lab'),
+     path('about_team', about_team, name='about_team'),
+     #path('contact/', about, name='contact'),
+    #===========================================================================
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
