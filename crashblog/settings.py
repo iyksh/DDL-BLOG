@@ -157,6 +157,6 @@ CKEDITOR_5_CONFIGS = {
         'table': {
             'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells']
         },
-        'language': 'br'
+        'language': 'pt-br'
     }
 }

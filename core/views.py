@@ -6,8 +6,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
 
-
 from blog.models import Post, Category
+
+
 def frontpage(request):
     posts = Post.objects.filter(status=Post.ACTIVE)
     return render(request, 'core/frontpage.html', {'posts': posts})
@@ -37,6 +38,30 @@ def about_team(request):
 def contact(request):
 
     return render(request, 'core/contact.html')
+
+def join_us(request):
+    
+    return render(request, 'core/join_us.html')
+
+"""
+def research_projects(request):
+    
+    return render(request, 'core/research_projects.html')
+
+
+
+def active_projects(request):
+    
+    return render(request, 'core/active.html')
+
+def publications(request):
+    
+    return render(request, 'core/publications.html')
+
+def topics(request):
+    
+    return render(request, 'core/topics.html')
+"""
 
 @csrf_exempt
 def upload(request):
