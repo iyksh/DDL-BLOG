@@ -25,7 +25,7 @@ from .sitemaps import CategorySitemap, PostSitemap
 
 from core.views import robots_txt, upload
 from core.views import frontpage, news
-from core.views import about_lab, about_team
+from core.views import about_lab, about_team, contact
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
@@ -45,7 +45,7 @@ urlpatterns = [
     
     #===========================================================================
     path('', frontpage, name='frontpage'),
-    path('news/', news, name='news'),
+    path('news', news, name='news'),
     #===========================================================================
     
     # ABOUT #
@@ -53,7 +53,7 @@ urlpatterns = [
     #===========================================================================
      path('about_lab', about_lab, name='about_lab'),
      path('about_team', about_team, name='about_team'),
-     #path('contact/', about, name='contact'),
+     path('contact', contact, name='contact'),
     #===========================================================================
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

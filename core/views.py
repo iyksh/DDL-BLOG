@@ -10,7 +10,6 @@ from django.core.files.storage import default_storage
 from blog.models import Post, Category
 def frontpage(request):
     posts = Post.objects.filter(status=Post.ACTIVE)
-
     return render(request, 'core/frontpage.html', {'posts': posts})
 
 def news(request):
@@ -26,14 +25,18 @@ def robots_txt(request):
     return HttpResponse("\n".join(text), content_type="text/plain")
 
 def about_lab(request):
-    about_lab_category = Category.objects.get(slug='about-lab')  # or title='about-lab' if you prefer
-    posts = Post.objects.filter(category=about_lab_category)
+    item = Category.objects.get(slug='about-lab')
+    posts = Post.objects.filter(Q(category=item) | Q(category2=item) | Q(category3=item))
     return render(request, 'core/about_lab.html', {'posts': posts})
 
 def about_team(request):
-    about_team_category = Category.objects.get(slug='about-team')  # or title='about-lab' if you prefer
-    posts = Post.objects.filter(category=about_team_category)
+    item = Category.objects.get(slug='about-team')
+    posts = Post.objects.filter(Q(category=item) | Q(category2=item) | Q(category3=item))
     return render(request, 'core/about_team.html', {'posts': posts})
+
+def contact(request):
+
+    return render(request, 'core/contact.html')
 
 @csrf_exempt
 def upload(request):
