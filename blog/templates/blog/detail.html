@@ -26,15 +26,6 @@
                                     <p>{{ post.body|markdown|safe|linebreaks }}</p>
                                 </div>
                             </div>
-                            
-                            {% if post.image %}
-                            <figure class="image mb-6">
-                                <div style="display: inline-block;">
-                                    <img src="{{ post.image.url }}" style="max-width: 150px; max-height: 150px;" alt="{{ post.title }}">
-                                </div>
-                            </figure>
-                            {% endif %}
-
                             <hr>
 
                             <h2 class="subtitle is-4">Deixe seu comentário!</h2>

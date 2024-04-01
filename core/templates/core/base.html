@@ -19,18 +19,20 @@
                 position: absolute;
                 width: 10px;
                 height: 10px;
-                border: solid 1px #003298;
+                border: solid 1px;
+                border-image: linear-gradient(to right, #003298 30%, #0051f4 30%);
+                border-image-slice: 1;
                 transform-origin: top left;
                 transform: scale(0) rotate(0deg) translate(-50%, -50%);
                 -webkit-animation: cube 12s ease-in forwards infinite;
                 animation: cube 12s ease-in forwards infinite;
             }
-
+        
             .cube.left {
                 left: 10vw;
                 top: 50vh;
             }
-
+        
             .cube.right {
                 right: 10vw;
                 top: 50vh;
@@ -96,6 +98,7 @@
                     opacity: 0;
                 }
             }
+
         </style>
         
     </head>
@@ -112,18 +115,36 @@
                         <span></span>
                     </span>
                 </div>
+
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <div class="control has-icons-left">
-                                <input class="input is-rounded" name="query" type="text" placeholder="Search">
-                                <span class="icon is-left">
-                                    <i class="fa fa-search"></i>
-                                </span>
+                            <form method="get" action="{% url 'search' %}">
+                                <div class="control has-icons-left">
+                                    <input class="input is-rounded" name="query" type="text" placeholder="Search">
+                                    <span class="icon is-left">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <a href="{% url 'frontpage' %}"  class="navbar-item is-hoverable">Home</a>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">News</a>
+                            <div class="navbar-dropdown">
+                                <div class="navbar-item">
+                                    <p><a href="{% url 'news' %}" class="navbar-item">Eventos</a></p>
+                                </div>
+                                <hr class="navbar-divider">
+                                <div class="navbar-item">
+                                    <a href="{% url 'join_us' %}"class="navbar-item">Join-us</a>
+                                </div>
                             </div>
                         </div>
-                        <a href="{% url 'frontpage' %}"  class="navbar-item is-hoverable">Home</a>
-                        <a href="{% url 'news' %}" class="navbar-item is-hoverable">News</a>
+                        
+                        
                         <!-- ABOUT -->
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">Sobre</a>
@@ -139,15 +160,6 @@
                                 <div class="navbar-item">
                                     <p><a href="{% url 'contact' %}" class="navbar-item">Contato</a></p>
                                 </div>   
-                            </div>
-                        </div>
-                        <!-- JOIN-US -->
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">Join-Us</a>
-                            <div class="navbar-dropdown">
-                                <div class="navbar-item">
-                                    <p><a href="{% url 'join_us' %}" class="navbar-item">Editais</a></p>
-                                </div>
                             </div>
                         </div>
                         <!-- RESEARCH -->
@@ -178,14 +190,9 @@
         </nav>
         <section class="section">
 
-            <div class="hero"> 
-                <div class="cube"></div>
-                <div class="cube"></div>
-                <div class="cube"></div>
-                <div class="cube"></div>
-                <div class="cube"></div>
-                <div class="cube"></div>
-            </div>
+            {% block background %}
+            {% endblock %}
+
             <div class="container">
                 {% block content %}
                 {% endblock %}
