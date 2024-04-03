@@ -7,98 +7,31 @@
         <title>{% block title %}{% endblock %}Discovery Data Lab</title>
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+        <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+        <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js"></script>
+
+
         <style>
             nav.navbar {
                 height: 6rem !important;
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
             }
-        
-            @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
-        
-            .cube {
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                border: solid 1px;
-                border-image: linear-gradient(to right, #003298 30%, #0051f4 30%);
-                border-image-slice: 1;
-                transform-origin: top left;
-                transform: scale(0) rotate(0deg) translate(-50%, -50%);
-                -webkit-animation: cube 12s ease-in forwards infinite;
-                animation: cube 12s ease-in forwards infinite;
-            }
-        
-            .cube.left {
-                left: 10vw;
-                top: 50vh;
-            }
-        
-            .cube.right {
-                right: 10vw;
-                top: 50vh;
-            }
-        
-            .cube:nth-child(2n) {
-                border-color: #0051f4;
-            }
-        
-            .cube:nth-child(2) {
-                -webkit-animation-delay: 2s;
-                animation-delay: 2s;
-                left: 25vw;
-                top: 40vh;
-            }
-        
-            .cube:nth-child(3) {
-                -webkit-animation-delay: 4s;
-                animation-delay: 4s;
-                left: 75vw;
-                top: 50vh;
-            }
-        
-            .cube:nth-child(4) {
-                -webkit-animation-delay: 6s;
-                animation-delay: 6s;
-                left: 90vw;
-                top: 10vh;
-            }
-        
-            .cube:nth-child(5) {
-                -webkit-animation-delay: 8s;
-                animation-delay: 8s;
-                left: 10vw;
-                top: 85vh;
-            }
-        
-            .cube:nth-child(6) {
-                -webkit-animation-delay: 10s;
-                animation-delay: 10s;
-                left: 50vw;
-                top: 10vh;
-            }
-        
-            @-webkit-keyframes cube {
-                from {
-                    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-                    opacity: 1;
-                }
-                to {
-                    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-                    opacity: 0;
-                }
-            }
-        
-            @keyframes cube {
-                from {
-                    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-                    opacity: 1;
-                }
-                to {
-                    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-                    opacity: 0;
-                }
-            }
+ 
+             @media only screen {
+                 .demo .main-title {
+                     font-size: 3em;
+                 }
+             }
+             
 
+            .background {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+            </style>
         </style>
         
     </head>
@@ -188,16 +121,28 @@
                 </div>
             </div>
         </nav>
+        </div>
+        <div class="background">
+            <div class="container demo">
+                <div class="content">
+                   <div id="large-header" class="large-header">
+                      <canvas id="demo-canvas"></canvas>
+                      <canvas id="demo-canvas"></canvas>
+                      <canvas id="demo-canvas"></canvas>
+                      <canvas id="demo-canvas"></canvas>
+                      <canvas id="demo-canvas"></canvas>
+                   </div>
+                </div>
+             </div>
+            </div>
         <section class="section">
-
-            {% block background %}
-            {% endblock %}
-
             <div class="container">
                 {% block content %}
                 {% endblock %}
+
             </div>
         </section>
+
         <footer class="footer" style="background-color: #353935;">
             <div class="content has-text-centered" style="color: white;">
                 <h3 style="color: white;">Copyright (c) 2024 - Discovery Data Lab </h3>

@@ -4,23 +4,6 @@
     Home |
 {% endblock %}
 
-{% block background %}
-<div class="hero"> 
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-</div>
-{% endblock %}
-
 {% block content %}
     <section class="hero">
         <div class="hero-body">
@@ -29,7 +12,7 @@
                     <div class="columns">
                         <div class="column is-8 is-offset-2">
                             {% for post in posts %}
-                            <article class="media box">
+                            <article class="media box" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); box-color: #1c96c5">
                                 <div class="content is-medium" style="display: flex; align-items: center;">
                                     {% if post.image %}
                                     <div style="flex: 1;">
@@ -37,7 +20,7 @@
                                     </div>
                                     {% endif %}
                                     <div style="flex: 2; margin-left: 20px;">
-                                        <a href="{% url 'post_detail' post.category.slug post.slug %}" style="color: darkblue;">
+                                        <a href="{% url 'post_detail' post.category.slug post.slug %}" style="color: #1c96c5;">
                                             <h2 class="title is-5">{{ post.created_at|date:'M/d/Y h:i'}} </h2>
                                             <h1 class="title is-6" style="background-color: #fafafa;">{{ post.title }}</h1>
                                             <p style="font-size: 0.8em;">{{ post.intro }}</p>
