@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
     'django_ckeditor_5',
+    'team.apps.TeamConfig',
 ]
 
 MIDDLEWARE = [

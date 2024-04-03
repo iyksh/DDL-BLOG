@@ -25,7 +25,8 @@ from .sitemaps import CategorySitemap, PostSitemap
 
 from core.views import robots_txt, upload
 from core.views import frontpage, news
-from core.views import about_lab, about_team, contact
+from core.views import about_lab, contact
+from team.views import about_team
 from core.views import join_us
 #from core.views import research_projects, active_projects, active_projects, publications, topics
 

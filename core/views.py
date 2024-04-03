@@ -30,11 +30,6 @@ def about_lab(request):
     posts = Post.objects.filter(Q(category=item) | Q(category2=item) | Q(category3=item))
     return render(request, 'core/about_lab.html', {'posts': posts})
 
-def about_team(request):
-    item = Category.objects.get(slug='about-team')
-    posts = Post.objects.filter(Q(category=item) | Q(category2=item) | Q(category3=item))
-    return render(request, 'core/about_team.html', {'posts': posts})
-
 def contact(request):
 
     return render(request, 'core/contact.html')
