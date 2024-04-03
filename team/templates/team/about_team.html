@@ -2,6 +2,7 @@
 
 {% block title %}Team | {% endblock %}
 
+
 {% block content %}
     <section class="hero">
         <div class="hero-body">
@@ -10,37 +11,28 @@
                     <div class="columns">
                         <div class="column is-8 is-offset-2">
                             {% for member in members %}
-                                <div class="content is-medium" style="display: flex; align-items: center;">
-                                    {% if member.user_photo %}
-                                        <div style="flex: 1;">
-                                            <div style="flex: 1; text-align: center;">
-                                                <p>{{ member.name }} - {{ member.created_at|date:'Y'}}</p>
-                                                
-                                                <img src="{{ member.user_photo.url }}" style="width: 90%; max-height: 250px; max-width: 250px; border-radius: 90%;">
-                                                <p>{{ member.position }}</p>
+                                <article class="media box" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); box-color: #1c96c5">
+                                    <div class="content is-medium" style="display: flex; align-items: center;">
+                                        {% if member.user_photo %}
+                                            <div style="flex: 1;">
+                                                <div style="flex: 1; text-align: center;">
+                                                    <p>{{ member.name }} - {{ member.created_at|date:'Y'}}</p>
+                                                    <img src="{{ member.user_photo.url }}" style="width: 100%; max-width: 250px; border-radius: 100%; margin-right: 20px;">
+                                                    <p>{{ member.position }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    {% endif %}
-                                    <div style="flex: 2; margin-left: 20px; text-align: center;">
-                                            
+                                        {% endif %}
+                                        <div style="flex: 2; margin-left: 20px; text-align: center;">
                                             <h4 class="subtitle is-6" style="background-color: #fafafa;">Ramo de Pesquisa</h4>
                                             <p class="subtitle is-6"> {{ member.search_field }}</p>
                                             <h4 class="subtitle is-6" style="background-color: #fafafa;">Interesses</h4>
                                             <p class="subtitle is-6"> {{ member.interests }}</p>
                                             <p class="subtitle is-6">{{ member.intro }}</p>
                                             <a href="mailto:{{ member.email }}">E-mail</a>
-
-                                        
-                                        </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <hr> 
-                            {% empty %}
-
-                                <div class="content" style="text-align: center;">
-                                    <h1 class="title">Not yet...</h1>
                                     <hr>
-                                </div>
+                                </article>
                             {% endfor %}
                         </div>
                     </div>
