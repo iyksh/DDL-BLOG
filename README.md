@@ -1,35 +1,25 @@
 # Discovery Data Lab Blog
 
-Discovery Data Lab Blog is a Django-based web application.
-
-## Features
-
-- Sitemap generation for categories and posts
-- Custom views for frontpage, about page, and robots.txt
-- Admin interface
-- Static file serving for media files
-- Includes a blog application
-
-## URLs
-
-- `/sitemap.xml`: Sitemap
-- `/robots.txt`: Robots.txt
-- `/admin/`: Admin interface
-- `/about/`: About page
-- `/contact/`: Contact page
-- `/researchers/`: Researchers page
-- `/`: Frontpage and blog URLs
+Discovery Data Lab Blog is a Django-based web application. 
 
 ## Setup
+***Warning: This setup example has GNU/LINUX commands, if needed change the commands for your Operating System.***
 
-1. Clone the repository
-2. Install the requirements using `pip install -r requirements.txt`
-3. Run the server using `python manage.py runserver`
+1. Clone the repository *(make sure that you have git, obviously)*
+```sh
+git clone https://github.com/iyksh/DDL-BLOG
+```
+2. Change file mode bits: 
+```sh
+chmod +x run.sh
+``` 
+3. Run the shell:
+```sh
+./run.sh
+```
+When running the shell, it should automatically install all libraries by *pip*, make sure you have *pip* installed on your operating system, (if it doesn't install all the libraries needed to run, let me know which libraries are missing)
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)

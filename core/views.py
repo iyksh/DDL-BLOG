@@ -38,7 +38,7 @@ def join_us(request):
     
     return render(request, 'core/join_us.html')
 
-"""
+
 def research_projects(request):
     
     return render(request, 'core/research_projects.html')
@@ -53,10 +53,10 @@ def publications(request):
     
     return render(request, 'core/publications.html')
 
-def topics(request):
+def topics_html(request):
     
     return render(request, 'core/topics.html')
-"""
+
 
 @csrf_exempt
 def upload(request):

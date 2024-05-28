@@ -26,9 +26,10 @@ from .sitemaps import CategorySitemap, PostSitemap
 from core.views import robots_txt, upload
 from core.views import frontpage, news
 from core.views import about_lab, contact
-from team.views import about_team
 from core.views import join_us
-#from core.views import research_projects, active_projects, active_projects, publications, topics
+from core.views import research_projects, active_projects, active_projects, publications, topics_html
+
+from team.views import about_team
 
 sitemaps = {'category': CategorySitemap, 'post': PostSitemap}
 
@@ -68,10 +69,10 @@ urlpatterns = [
     # RESEARCH #
     
     #===========================================================================
-    #path('research_projects', research_projects, name=research_projects),
-    #path('active_projects', active_projects, name=active_projects),
-    #path('publications', publications, name=publications),
-    #path('topics', topics, name=topics)
+    path('research_projects', research_projects, name='research_projects'),
+    path('active_projects', active_projects, name='active_projects'),
+    path('publications', publications, name='publications'),
+    path('topics_html', topics_html, name='topics_html')
     #===========================================================================
     
 
