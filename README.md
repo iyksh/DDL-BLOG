@@ -7,7 +7,7 @@ Discovery Data Lab Blog is a Django-based web application.
 
 1. Clone the repository *(make sure that you have git, obviously)*
 ```sh
-git clone https://github.com/iyksh/DDL-BLOG
+git clone https://github.com/iyksh/DDL-BLOG blog && cd blog
 ```
 2. Change file mode bits: 
 ```sh
